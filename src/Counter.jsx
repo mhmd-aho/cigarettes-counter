@@ -6,7 +6,7 @@ export default function Counter({setCount, count, packsCount ,yesterdayCount}) {
     <div className="h-96 w-full flex flex-col items-center justify-between border border-gray-200 p-4 rounded-lg shadow-md">
       <h2 className="text-2xl font-semibold">Today's Count</h2>
       <div className={`w-52  h-52 rounded-full ${yesterdayCount - totalCigarettes >= 0?'bg-green-200':'bg-red-200'}  flex justify-center items-center`}>
-        <div className="w-44 h-44 rounded-full flex items-center justify-center text-xl font-bold bg-white">
+        <button onClick={() => setCount(count + 1)}  className="w-44 h-44 rounded-full flex items-center justify-center text-xl font-bold bg-white active:bg-red-200">
             <div className="flex flex-col items-center justify-center gap-1 h-24">
                 <img src={cigarette} alt="cigarette icon" className="rotate-90 w-8 h-8" />
                 <p className="text-2xl">{count}</p>
@@ -16,16 +16,11 @@ export default function Counter({setCount, count, packsCount ,yesterdayCount}) {
                 <p className="text-2xl">{packsCount}</p>
             </div>
             
-        </div>
+        </button>
       </div>
-        <div className="w-1/2 flex justify-between">
             <button
             onClick={() =>count > 0 && setCount(count - 1)} 
             className="bg-white border border-gray-200 active:bg-green-200 w-14 h-14 rounded-full shadow-md  transition">-</button>
-            <button 
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-200 border border-gray-200 active:bg-red-200 w-14 h-14 rounded-full shadow-md transition">+</button>
-        </div>
     </div>
   )
 }
